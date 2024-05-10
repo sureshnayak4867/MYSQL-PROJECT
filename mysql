@@ -1,0 +1,29 @@
+SELECT * FROM cars.car_dekho;
+use cars;
+select * from car_dekho;
+-- to get a count of total records--
+select count(*) from car_dekho;
+-- the manager asks how many cars will be available in 2023--
+select count(*) from car_dekho where year = 2023;
+-- the manager asks employee how many cars wil be available in 2020,2021,2022--
+select count(*) from car_dekho where year = 2020;  #74
+select count(*) from car_dekho where year = 2021;  #7
+select count(*) from car_dekho where year = 2022;  #7
+-- group by--
+select count(*) from car_dekho where year in (2020,2021,2022) group by year;
+-- client asks to print the data year wise as he cannot the data in deatil--
+select year , count(*) from car_dekho group by year;
+-- client asked car dealer how many diesel cars will be available in 20220--
+select count(*) from car_dekho where fuel = "diesel" and year = 2020;
+-- client  asked car dealer that how many petrol cars are available in 2020?--
+select count(*) from car_dekho where fuel= "petrol" and year = 2020;
+-- client wants to print all the cars by years--
+select year, count(*) from car_dekho where fuel = "petrol" group by year;
+select year, count(*) from car_dekho where fuel = "diesel" group by year;
+select year, count(*) from car_dekho where fuel = "CNG" group by year;
+-- manager said there were more than 100 cars in a given year so in which year had more than 100 cars--
+select year, count(*) from car_dekho group by year having count(*)>100;
+-- the manager said to the employee that he needs all the count of the cars listed between 2015 and 2023 he needs the complete list of it--
+select count(*) from car_dekho where year between 2015 and 2023 ;
+-- the manager said to the employee that he needs all the cars listed between 2015 and 2023 he needs the complete list of it--
+select * from car_dekho where year between 2015 and 2023;
